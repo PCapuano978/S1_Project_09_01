@@ -15,6 +15,9 @@
 
    -->
 
+    <!-- Stylesheets are linked here as per usual, this time we have our first introduction to linking a javascript
+    sheet, which is done very similar to how other stylesheets have been done in the past. -->
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CGIP Registration Form</title>
@@ -57,7 +60,22 @@
         <h1>Conference Registration Form</h1>
         <p>Required Item (*)</p>
 
+        <!-- Our first line of code starts with a opening tag for our form, which will contain a series of fields 
+        applicable for having our user input their data in for our survey. -->
+
         <form id="survey" action="http://www.example.com/cg/register" method="POST">
+
+            <!-- While this is our first field, the contents within shall be explianed.
+        
+            Name = What the field be know for relating to what data is to be entered in it. 
+            id = The same as any ol' ID; very handy for targetting it later (*wink* *wink*)
+            type = The type of data that the user will be restricted to entering. Examples include text for well, text;
+            tel for phone numbers specifically and dates for only calender inputs, among many others
+            list = If applied, can add a list of options to chose from for the user via a drop down menu. -->
+
+            <!-- Our first field; established by a label tag, will be where the user will insert their own title.
+            It's given a data list to accomplish this with the options provided below. -->
+
             <label for="title">Title</label>
             <input name="title" id="titleBox" type="text" list="titleList" />
             <datalist id="titleList">
@@ -69,6 +87,10 @@
                 <option value="Assist. Prof." />
                 <option value="Assoc. Prof." />
             </datalist>
+
+            <!-- Next is our field where they enter in their first name, which is self explanitory, but includes our
+            first instance of a required field that must be filled out for our survey while not being optional.
+            This is done with the attribute added at the end and further more implied with the asterisk in text. -->
 
             <label for="firstName">First Name*</label>
             <input name="firstName" id="fnBox" type="text" required />
@@ -82,12 +104,22 @@
             <label for="group">Company or University</label>
             <input name="group" id="groupBox" type="text" />
 
-            <label for="phoneNumber">Phone Number*</label>
-            <input name="phoneNumber" id="mailBox" type="email" pattern="^\d{10}$|^(\(d{3}\)\s*)?\d{3}[\s-]?\d{4}$"
-                required />
+            <!-- The e-mail field also introduces a new attribute value, being a type of email. To make sure data entered
+            is legit, the system will check if the data entered has an @ symbol, text before and after it, and later
+            will varify if it is a working email.  -->
+
+            <label for="email">E-mail*</label>
+            <input name="email" id="mailBox" type="email" required />
+
+            <!-- Our phone number field then introduces two more attributes. A pattern that also checks for data
+            verivation through a complex text formula template, and a placeholder that inserts transparent text into the 
+            field by defualt that disapears when cliked on and shows the users what to type in. For even furhter 
+            varification, the type of this text is by "tel" in which checks for a similar format with all numbers
+            like how the email value did. -->
 
             <label for="phoneNumber">Phone Number*</label>
-            <input name="phoneNumber" id="phoneBox" type="tel" placeholder="(nnn) nnn-nnnn" required />
+            <input name="phoneNumber" id="phoneBox" type="tel" placeholder="(nnn) nnn-nnnn" pattern="^\d{10}$|^(\(d{3}\)\s*)?\d{3}[\s-]?\d{4}$"
+                required />
 
             <label for="acgipID">ACGIP Membership Number</label>
             <input name="acgipID" id="idBox" type="text" placeholder="acgip-nnnnnn" pattern=" ^acgip\-\d{6}$" />
@@ -101,6 +133,10 @@
                 <option value="Guest"> Guest ($35)</option>
             </select>
 
+
+            <!-- To cap off our form, a submit button is added at the bottom to confirm and send the data to the
+            sever host for collecting. If any of the data does not follow the appropraite criterias of one of the
+            fields, then the page will let the user correct them before continuing on. -->
 
             <p>
                 <input type="submit" value="Continue">

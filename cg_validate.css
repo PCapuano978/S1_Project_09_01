@@ -14,11 +14,18 @@
 
 /* Validation Styles */
 
+/* Starting off our added code in this style sheet, it targets all inputs, selects, and text areas that must be clicked
+on and further more in the focus of the user to have a background color a RGB value that is of a shade of yellow. */
+
 input:focus,
 select:focus,
 textarea:focus {
     background: rgb(245, 245, 140);
 }
+
+/* All of the conviently made field IDs are put into use here as they are targeted by both if they are in focus, and
+furthmore valid with the text protocol to be of a green shade with a checkmark image added in to the right
+within the field without repeating, both symbolising that the user entered in viable data into their field. */
 
 input#fnBox:focus:valid,
 input#lnBox:focus:valid,
@@ -28,6 +35,10 @@ input#phoneBox:focus:valid,
 input#idBox:focus:valid {
     background: rgb(220, 255, 220) url("cg_valid.png") right/contain no-repeat;
 }
+
+/* Much of the top is repeated here, this time however, it checks all the IDs for if they are invalid instead. Naturally,
+they are treated with a red backgrounded field with a red caution symbol that is contained to the right of the area
+showing that the text entered within is not accepatable by the survey and must be correct by the user live.  */
 
 input#fnBox:focus:invalid,
 input#lnBox:focus:invalid,
